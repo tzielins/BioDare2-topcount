@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>ed.biodare.util</groupId>
+    <groupId>ed.biodare.data</groupId>
     <artifactId>topcount</artifactId>
-    <version>1.3-SNAPSHOT</version>
+    <version>1.6-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
+        <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
     <name>TopCount Utils</name>
     <description>Reading data from TopCount format</description>
+    
+    
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>ed.biodare.data</groupId>
+                <artifactId>data-util-bom</artifactId>
+                <version>1.6.0-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>			
+        </dependencies>
+    </dependencyManagement>
+        
     <dependencies>
         
-        <!-- data utils -->
         <dependency>
-                <groupId>ed.biodare.util</groupId>
-                <artifactId>biodare_data_util</artifactId>
-                <version>1.3-SNAPSHOT</version>
-        </dependency>
-        <!-- data utils -->
+            <groupId>ed.biodare.data</groupId>
+            <artifactId>data-util</artifactId>
+        </dependency>         
         
         <dependency>
             <groupId>junit</groupId>
@@ -31,11 +43,19 @@
     </dependencies>
     
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>         
         <plugins>
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-source-plugin</artifactId>
-              <version>2.4</version>
+              <version>3.2.1</version>
               <executions>
                 <execution>
                   <id>attach-sources</id>
@@ -48,21 +68,6 @@
         </plugins>    
     </build>
     
-    <distributionManagement>
-        <repository>
-          <uniqueVersion>false</uniqueVersion>
-          <id>biodare-rel</id>
-          <name>BioDare releases</name>
-          <url>http://pumpkin.bio.ed.ac.uk:8881/nexus/content/repositories/biodare-rel</url>
-          <layout>default</layout>
-        </repository>
-        <snapshotRepository>
-          <uniqueVersion>true</uniqueVersion>
-          <id>biodare-dev</id>
-          <name>BioDare Snapshots</name>
-          <url>http://pumpkin.bio.ed.ac.uk:8881/nexus/content/repositories/biodare-dev</url>
-          <layout>default</layout>
-        </snapshotRepository>
-    </distributionManagement>    
+ 
     
 </project>
