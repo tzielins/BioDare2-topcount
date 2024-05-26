@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ed.biodare.data</groupId>
     <artifactId>topcount</artifactId>
-    <version>1.6.1-SNAPSHOT</version>
+    <version>1.7.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
         <java.version>11</java.version>
@@ -20,7 +20,7 @@
             <dependency>
                 <groupId>ed.biodare.data</groupId>
                 <artifactId>data-bom</artifactId>
-                <version>1.6.0</version>
+                <version>1.7.0-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>			
